@@ -1,5 +1,7 @@
 package executor.service.model;
 
+import java.util.Objects;
+
 public class StepDTO {
 
 	private String action;
@@ -28,4 +30,16 @@ public class StepDTO {
 		this.value = value;
 	}
 
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		StepDTO stepDTO = (StepDTO) o;
+		return Objects.equals(action, stepDTO.action) && Objects.equals(value, stepDTO.value);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(action, value);
+	}
 }
