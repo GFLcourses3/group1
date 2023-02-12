@@ -6,6 +6,9 @@ public class ProxyNetworkConfigDTO {
     private String hostname;
     private Integer port;
 
+    public ProxyNetworkConfigDTO() {
+    }
+
     public ProxyNetworkConfigDTO(String hostname, Integer port) {
         this.hostname = hostname;
         this.port = port;
