@@ -46,4 +46,17 @@ public class WebDriverConfigDTO {
     public void setImplicitlyWait(Long implicitlyWait) {
         this.implicitlyWait = implicitlyWait;
     }
+    
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        WebDriverConfigDTO that = (WebDriverConfigDTO) o;
+        return webDriverExecutable.equals(that.webDriverExecutable) && userAgent.equals(that.userAgent) && pageLoadTimeout.equals(that.pageLoadTimeout) && implicitlyWait.equals(that.implicitlyWait);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(webDriverExecutable, userAgent, pageLoadTimeout, implicitlyWait);
+    }
 }
