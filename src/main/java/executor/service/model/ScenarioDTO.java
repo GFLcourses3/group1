@@ -11,11 +11,6 @@ public class ScenarioDTO {
     public ScenarioDTO() {
     }
 
-    public ScenarioDTO(String name, String site) {
-        this.name = name;
-        this.site = site;
-    }
-
     public ScenarioDTO(String name, String site, List<StepDTO> steps) {
         this.name = name;
         this.site = site;
@@ -57,14 +52,5 @@ public class ScenarioDTO {
     @Override
     public int hashCode() {
         return Objects.hash(name, site, steps);
-    }
-
-    @Override
-    public String toString() {
-        return "ScenarioDTO{" +
-                "name='" + name + '\'' +
-                ", site='" + site + '\'' +
-                ", steps=" + steps +
-                '}';
     }
 }
