@@ -6,60 +6,65 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ProxyNetworkConfigDTOTest {
 
-    ProxyNetworkConfigDTO proxyNetworkConfig1;
-    ProxyNetworkConfigDTO proxyNetworkConfig2;
-    ProxyNetworkConfigDTO proxyNetworkConfig3;
+    private static final String LOCALHOST = "localhost";
+    private static final String SOMEHOST = "somehost";
+    private static final Integer PORT_8080 = 8080;
+    private static final Integer PORT_80 = 80;
+
+    private ProxyNetworkConfigDTO proxyNetworkConfig1;
+    private ProxyNetworkConfigDTO proxyNetworkConfig2;
+    private ProxyNetworkConfigDTO proxyNetworkConfig3;
 
     @BeforeEach
-    void setUpEach() {
-        proxyNetworkConfig1 = new ProxyNetworkConfigDTO("localhost", 8080);
-        proxyNetworkConfig2 = new ProxyNetworkConfigDTO("somehost", 80);
+    public void setUpEach() {
+        proxyNetworkConfig1 = new ProxyNetworkConfigDTO(LOCALHOST, PORT_8080);
+        proxyNetworkConfig2 = new ProxyNetworkConfigDTO(SOMEHOST, PORT_80);
         proxyNetworkConfig3 = new ProxyNetworkConfigDTO();
     }
 
     @Test
-    void testEquals() {
-        ProxyNetworkConfigDTO proxyNetworkConfig4 = new ProxyNetworkConfigDTO("localhost", 8080);
-        proxyNetworkConfig3.setHostname("localhost");
-        proxyNetworkConfig3.setPort(8080);
+    public void testEquals() {
+        ProxyNetworkConfigDTO proxyNetworkConfig4 = new ProxyNetworkConfigDTO(LOCALHOST, PORT_8080);
+        proxyNetworkConfig3.setHostname(LOCALHOST);
+        proxyNetworkConfig3.setPort(PORT_8080);
         assertFalse(proxyNetworkConfig1.equals(proxyNetworkConfig2));
         assertTrue(proxyNetworkConfig1.equals(proxyNetworkConfig3));
         assertTrue(proxyNetworkConfig1.equals(proxyNetworkConfig4));
     }
 
     @Test
-    void testNotHashCode() {
+    public void testNotHashCode() {
         assertNotEquals(proxyNetworkConfig1.hashCode(), proxyNetworkConfig2.hashCode());
-        proxyNetworkConfig3.setHostname("localhost");
-        proxyNetworkConfig3.setPort(8080);
+        proxyNetworkConfig3.setHostname(LOCALHOST);
+        proxyNetworkConfig3.setPort(PORT_8080);
         assertEquals(proxyNetworkConfig1.hashCode(), proxyNetworkConfig3.hashCode());
     }
 
     @Test
-    void testGetHostname() {
-        assertEquals("localhost", proxyNetworkConfig1.getHostname());
-        assertEquals("somehost", proxyNetworkConfig2.getHostname());
+    public void testGetHostname() {
+        assertEquals(LOCALHOST, proxyNetworkConfig1.getHostname());
+        assertEquals(SOMEHOST, proxyNetworkConfig2.getHostname());
     }
 
     @Test
-    void testSetHostname() {
-        assertEquals("localhost", proxyNetworkConfig1.getHostname());
-        proxyNetworkConfig1.setHostname("somehost");
-        assertNotEquals("localhost", proxyNetworkConfig1.getHostname());
-        assertEquals("somehost", proxyNetworkConfig1.getHostname());
+    public void testSetHostname() {
+        assertEquals(LOCALHOST, proxyNetworkConfig1.getHostname());
+        proxyNetworkConfig1.setHostname(SOMEHOST);
+        assertNotEquals(LOCALHOST, proxyNetworkConfig1.getHostname());
+        assertEquals(SOMEHOST, proxyNetworkConfig1.getHostname());
     }
 
     @Test
-    void testGetPort() {
-        assertEquals(8080, proxyNetworkConfig1.getPort());
-        assertEquals(80, proxyNetworkConfig2.getPort());
+    public void testGetPort() {
+        assertEquals(PORT_8080, proxyNetworkConfig1.getPort());
+        assertEquals(PORT_80, proxyNetworkConfig2.getPort());
     }
 
     @Test
-    void testSetPort() {
-        assertEquals(8080, proxyNetworkConfig1.getPort());
-        proxyNetworkConfig1.setPort(80);
-        assertNotEquals(8080, proxyNetworkConfig1.getPort());
-        assertEquals(80, proxyNetworkConfig1.getPort());
+    public void testSetPort() {
+        assertEquals(PORT_8080, proxyNetworkConfig1.getPort());
+        proxyNetworkConfig1.setPort(PORT_80);
+        assertNotEquals(PORT_8080, proxyNetworkConfig1.getPort());
+        assertEquals(PORT_80, proxyNetworkConfig1.getPort());
     }
 }
