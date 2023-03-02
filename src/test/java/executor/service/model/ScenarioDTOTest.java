@@ -10,21 +10,25 @@ import java.util.Objects;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ScenarioDTOTest {
+
+    private final String name = "Name-1";
+    private final String site = "Site-1";
     private List<StepDTO> stepDTOList;
     private ScenarioDTO scenarioDTO;
 
     @BeforeEach
     public void setUp() {
-        stepDTOList =  Arrays.asList(new StepDTO("Action-1", "Value-1"), new StepDTO("Action-2", "Value-2"));
-        scenarioDTO = new ScenarioDTO("Name-1", "Site-1", stepDTOList);
+
+        stepDTOList = Arrays.asList(new StepDTO("Action-1", "Value-1"), new StepDTO("Action-2", "Value-2"));
+        scenarioDTO = new ScenarioDTO(name, site, stepDTOList);
     }
 
     @Test
     public void testEqualsDTO() {
 
         ScenarioDTO scenarioDTO2 = new ScenarioDTO();
-        scenarioDTO2.setName("Name-1");
-        scenarioDTO2.setSite("Site-1");
+        scenarioDTO2.setName(name);
+        scenarioDTO2.setSite(site);
         scenarioDTO2.setSteps(stepDTOList);
 
         assertEquals(scenarioDTO, scenarioDTO2);
@@ -33,7 +37,7 @@ class ScenarioDTOTest {
     @Test
     public void testEqualHashCode() {
 
-        ScenarioDTO scenarioDTO2 = new ScenarioDTO("Name-1","Site-1", stepDTOList);
+        ScenarioDTO scenarioDTO2 = new ScenarioDTO(name,site, stepDTOList);
 
         assertEquals(scenarioDTO.hashCode(), scenarioDTO2.hashCode());
     }
@@ -53,8 +57,8 @@ class ScenarioDTOTest {
    public void testGetters() {
 
        ScenarioDTO scenarioDTO2 = new ScenarioDTO();
-       scenarioDTO2.setName("Name-1");
-       scenarioDTO2.setSite("Site-1");
+       scenarioDTO2.setName(name);
+       scenarioDTO2.setSite(site);
        scenarioDTO2.setSteps(stepDTOList);
 
        assertEquals(scenarioDTO.getSteps(), scenarioDTO2.getSteps());
@@ -63,16 +67,11 @@ class ScenarioDTOTest {
     @Test
     public void testCompareValueAndGetter() {
 
-        String expectedName = "Name-1";
-
-        assertEquals(expectedName, scenarioDTO.getName());
+        assertEquals(name, scenarioDTO.getName());
     }
 
     @Test
     public void testSetters() {
-
-        String name = "Name-1";
-        String site = "Site-1";
 
         ScenarioDTO scenarioDTO1 = new ScenarioDTO();
         scenarioDTO1.setName(name);
