@@ -84,14 +84,6 @@ class ScenarioDTOTest {
         assertEquals(stepDTOList, scenarioDTO1.getSteps());
     }
 
-   @Test
-   public void testNullDTO() {
-
-        scenarioDTO = null;
-
-        assertNull(scenarioDTO);
-    }
-
     @Test
     public void testNullValue() {
 
