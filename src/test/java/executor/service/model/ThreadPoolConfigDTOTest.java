@@ -18,10 +18,12 @@ public class ThreadPoolConfigDTOTest {
     @Test
     public void testSetters() {
         ThreadPoolConfigDTO config = new ThreadPoolConfigDTO();
-        config.setCorePoolSize(10);
-        config.setKeepAliveTime(500L);
-        assertEquals(Integer.valueOf(10), config.getCorePoolSize());
-        assertEquals(Long.valueOf(500L), config.getKeepAliveTime());
+        Integer corePoolSize = 10;
+        Long keepAliveTime = 500L;
+        config.setCorePoolSize(corePoolSize);
+        config.setKeepAliveTime(keepAliveTime);
+        assertEquals(corePoolSize, config.getCorePoolSize());
+        assertEquals(keepAliveTime, config.getKeepAliveTime());
     }
 
     @Test
