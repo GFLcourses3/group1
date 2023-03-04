@@ -6,10 +6,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ProxyNetworkConfigDTOTest {
 
-    private static final String LOCALHOST = "localhost";
-    private static final String SOMEHOST = "somehost";
-    private static final Integer PORT_8080 = 8080;
-    private static final Integer PORT_80 = 80;
+    private final String LOCALHOST = "localhost";
+    private final String SOMEHOST = "somehost";
+    private final Integer PORT_8080 = 8080;
+    private final Integer PORT_80 = 80;
 
     private ProxyNetworkConfigDTO proxyNetworkConfig1;
     private ProxyNetworkConfigDTO proxyNetworkConfig2;
