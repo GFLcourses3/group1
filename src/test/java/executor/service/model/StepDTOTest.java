@@ -18,7 +18,7 @@ class StepDTOTest {
     }
 
     @Test
-    void testEqualOrNot() {
+    public void testEqualOrNot() {
         StepDTO actualStepObj = new StepDTO(action, value);
         Assertions.assertEquals(expectedStepDTO, actualStepObj);
     }
@@ -41,7 +41,7 @@ class StepDTOTest {
     }
 
     @Test
-    void testForEqualsAndHash() {
+    public void testForEqualsAndHash() {
         StepDTO actualStepObj = new StepDTO(action, value);
         Assertions.assertEquals(actualStepObj, expectedStepDTO);
         Assertions.assertEquals(expectedStepDTO.hashCode(), actualStepObj.hashCode());
@@ -61,7 +61,7 @@ class StepDTOTest {
     }
 
     @Test
-    void testIfObjectsNotEquals() {
+    public void testIfObjectsNotEquals() {
         StepDTO actualStepObj = new StepDTO("push", "git");
         Assertions.assertNotEquals(expectedStepDTO, actualStepObj);
     }
