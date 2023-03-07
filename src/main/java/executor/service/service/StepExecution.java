@@ -7,6 +7,6 @@ public interface StepExecution {
 
     String getStepAction();
 
-    void step(WebDriver webDriver, StepDTO stepDTO);
+    void step(WebDriver webDriver, StepDTO stepDTO) throws InterruptedException;
 
 }
