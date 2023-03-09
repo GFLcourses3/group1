@@ -4,13 +4,13 @@ import java.util.Objects;
 
 public class ProxyConfigHolderDTO {
     private ProxyNetworkConfigDTO proxyNetworkConfig;
-    private ProxyCredentials proxyCredentials;
+    private ProxyCredentialsDTO proxyCredentialsDTO;
 
     public ProxyConfigHolderDTO() {}
 
-    public ProxyConfigHolderDTO(ProxyNetworkConfigDTO proxyNetworkConfig, ProxyCredentials proxyCredentials) {
+    public ProxyConfigHolderDTO(ProxyNetworkConfigDTO proxyNetworkConfig, ProxyCredentialsDTO proxyCredentialsDTO) {
         this.proxyNetworkConfig = proxyNetworkConfig;
-        this.proxyCredentials = proxyCredentials;
+        this.proxyCredentialsDTO = proxyCredentialsDTO;
     }
 
     public ProxyNetworkConfigDTO getProxyNetworkConfig() {
@@ -21,12 +21,12 @@ public class ProxyConfigHolderDTO {
         this.proxyNetworkConfig = proxyNetworkConfig;
     }
 
-    public ProxyCredentials getProxyCredentials() {
-        return proxyCredentials;
+    public ProxyCredentialsDTO getProxyCredentials() {
+        return proxyCredentialsDTO;
     }
 
-    public void setProxyCredentials(ProxyCredentials proxyCredentials) {
-        this.proxyCredentials = proxyCredentials;
+    public void setProxyCredentials(ProxyCredentialsDTO proxyCredentialsDTO) {
+        this.proxyCredentialsDTO = proxyCredentialsDTO;
     }
 
     @Override
@@ -34,11 +34,11 @@ public class ProxyConfigHolderDTO {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ProxyConfigHolderDTO proxyConfigHolder = (ProxyConfigHolderDTO) o;
-        return Objects.equals(proxyNetworkConfig, proxyConfigHolder.proxyNetworkConfig) && Objects.equals(proxyCredentials, proxyConfigHolder.proxyCredentials);
+        return Objects.equals(proxyNetworkConfig, proxyConfigHolder.proxyNetworkConfig) && Objects.equals(proxyCredentialsDTO, proxyConfigHolder.proxyCredentialsDTO);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(proxyNetworkConfig, proxyCredentials);
+        return Objects.hash(proxyNetworkConfig, proxyCredentialsDTO);
     }
 }
