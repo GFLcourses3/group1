@@ -2,16 +2,16 @@ package executor.service.model;
 
 import java.util.Objects;
 
-public class ProxyCredentials {
+public class ProxyCredentialsDTO {
     private String user;
     private String password;
 
-    public ProxyCredentials(String user, String password) {
+    public ProxyCredentialsDTO(String user, String password) {
         this.user = user;
         this.password = password;
     }
 
-    public ProxyCredentials(){}
+    public ProxyCredentialsDTO(){}
 
     public String getUser() {
         return user;
@@ -34,7 +34,7 @@ public class ProxyCredentials {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        ProxyCredentials that = (ProxyCredentials) o;
+        ProxyCredentialsDTO that = (ProxyCredentialsDTO) o;
 
         if (!Objects.equals(user, that.user)) return false;
         return Objects.equals(password, that.password);
