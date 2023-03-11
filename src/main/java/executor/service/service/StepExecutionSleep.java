@@ -12,14 +12,14 @@ public class StepExecutionSleep implements StepExecution{
     }
 
     @Override
-    public void step(WebDriver webDriver, StepDTO stepDTO) throws InterruptedException, IllegalArgumentException {
+    public void step(WebDriver webDriver, StepDTO stepDTO) {
         try {
             int sleepTime = Integer.parseInt(stepDTO.getValue());
             Thread.sleep(sleepTime);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("Sleep argument must be an integer");
         } catch (InterruptedException e) {
-            throw e;
+            Thread.currentThread().interrupt();
         } catch (Exception e) {
             throw new RuntimeException("Error occurred while executing sleep step", e);
         }
